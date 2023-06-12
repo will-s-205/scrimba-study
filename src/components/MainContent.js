@@ -1,12 +1,6 @@
 export default function MainContent() {
     return (
         <div>
-            <div id="text">no</div>
-            <div id="author">no</div>
-            <div id="new-quote">no</div>
-            {/* ELEMENTS BELOW SHOULD BE CLICKABLE */}
-            {/* <div id="tweet-quote"></div> */}
-            {/* <div id="text"></div> */}
             <h1>Reasons I'm excited to learn React</h1>
             <ol>
                 <li>It's a popular library, so I'll be 
