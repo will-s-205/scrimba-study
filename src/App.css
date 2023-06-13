@@ -6,13 +6,11 @@
 /* CONTAINER */
 
 .container {
-  /* display: flex; */
-  /* background-color: #eee; */
   margin: 5% auto;
-  width: 700px;
-  /* height: 200px; */
-  /* text-align: center; */
-  background-color: #eee;
+  /* width: 700px; */
+  max-width: 400px;
+  /* background-color: #eee; */
+  height: 100%;
 }
 
 /* CONTAINER */
@@ -24,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: #21222A;
-  padding: 25px 20px;
+  padding: 20px 10px;
 }
 
 .nav-logo {
@@ -67,6 +65,16 @@
   background-color: #21222ad4;
   color: #eee;
   line-height: 1.8;
+  background-image: url(../src/img/react-icon-large.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: top;
+}
+
+.main--facts>li::marker {
+  /* content: 'o '; */
+  font-size: 1.4em;
+  color: #61DAFB;
 }
 
 /* MAIN-CONTENT */
