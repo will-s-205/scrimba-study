@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Inter, sans-serif;
 }
 
 /* HEADER */
@@ -9,32 +10,35 @@
   align-items: center;
   justify-content: space-between;
   background-color: #21222A;
+  padding: 25px 20px;
 }
 
 .nav-logo {
-  width: 25px;
-  padding: 25px;
+  width: 30px;
+  margin-right: 8px;
 }
 
 .nav-items {
   list-style: none;
   display: flex;
+  font-weight: 600;
 }
 
 .nav-items>li {
   padding-right: 10px;
   text-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
 }
-
 
 .react-facts-and-icon {
   display: flex;
   align-items: center;
 }
 
-.react-facts {
+.logo-text {
   font-weight: bold;
-  color: #eee;
+  color: #61DAFB;
+  font-size: 22px;
 }
 
 /* HEADER */
