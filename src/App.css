@@ -3,7 +3,8 @@
   font-family: Inter, sans-serif;
 }
 
-/* CONTAINER *//* CONTAINER *//* CONTAINER */
+/* CONTAINER */
+
 .container {
   /* display: flex; */
   /* background-color: #eee; */
@@ -13,9 +14,11 @@
   /* text-align: center; */
   background-color: #eee;
 }
-/* CONTAINER *//* CONTAINER *//* CONTAINER */
 
-/* NAVBAR *//* NAVBAR *//* NAVBAR */
+/* CONTAINER */
+
+/* NAVBAR */
+
 .nav-bar {
   display: flex;
   align-items: center;
@@ -51,9 +54,12 @@
   color: #61DAFB;
   font-size: 22px;
 }
-/* NAVBAR *//* NAVBAR *//* NAVBAR */
 
-/* MAIN-CONTENT *//* MAIN-CONTENT *//* MAIN-CONTENT */
+/* NAVBAR */
+
+
+/* MAIN-CONTENT */
+
 .main-content--text {
   /* margin-left: 20px; */
   padding: 30px;
@@ -62,9 +68,12 @@
   color: #eee;
   line-height: 1.8;
 }
-/* MAIN-CONTENT *//* MAIN-CONTENT *//* MAIN-CONTENT */
+
+/* MAIN-CONTENT */
+
 
 /* FOOTER */
+
 .footer {
   /* position: fixed; */
   /* bottom: 0; */
@@ -76,4 +85,5 @@
   font-weight: bold;
   font-size: small;
 }
+
 /* FOOTER */
