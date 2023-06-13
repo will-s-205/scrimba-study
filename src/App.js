@@ -5,7 +5,7 @@ import MainContent from './components/MainContent'
 
 export default function App() {
   return (
-    <div id="container">
+    <div className="container">
       <Navbar />
       <MainContent />
       <Footer />
