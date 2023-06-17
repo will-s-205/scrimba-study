@@ -36,10 +36,15 @@ import Joke from "./Joke"
 import JokesData from "./JokesData"
 
 export default function App() {
+
   // console.log(jokesData);
   const JokeEls = JokesData.map(jokes => {
-    return <Joke question={jokes.question} punchline={jokes.punchline}/>
+    return <Joke 
+    question={jokes.question} 
+    punchline={jokes.punchline}
+    />
   })
+
   return (
     <div>
       {JokeEls}
