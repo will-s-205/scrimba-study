@@ -32,22 +32,33 @@ import './App.css';
 //   )
 // }
 
-import Joke from "./Joke"
-import JokesData from "./JokesData"
+// import Joke from "./Joke"
+// import JokesData from "./JokesData"
+
+// export default function App() {
+
+//   // console.log(jokesData);
+//   const JokeEls = JokesData.map(jokes => {
+//     return <Joke 
+//     question={jokes.question} 
+//     punchline={jokes.punchline}
+//     />
+//   })
+
+//   return (
+//     <div>
+//       {/* {JokeEls} */}
+//     </div>
+//   )
+// }
+
+import Form from './components/Form';
 
 export default function App() {
 
-  // console.log(jokesData);
-  const JokeEls = JokesData.map(jokes => {
-    return <Joke 
-    question={jokes.question} 
-    punchline={jokes.punchline}
-    />
-  })
-
   return (
     <div>
-      {JokeEls}
+      <Form />
     </div>
   )
 }
