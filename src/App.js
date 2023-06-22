@@ -52,13 +52,25 @@ import './App.css';
 //   )
 // }
 
-import Form from './components/Form';
+// import Form from './components/Form';
+
+// export default function App() {
+
+//   return (
+//     <div>
+//       <Form />
+//     </div>
+//   )
+// }
+
+import './SignUpForm.css';
+import SignUpForm from "./components/SignUpForm"
 
 export default function App() {
 
   return (
     <div>
-      <Form />
+      <SignUpForm />
     </div>
   )
 }
