@@ -21,19 +21,19 @@ import React from "react"
 //     )
 // }
 
-// https://scrimba.com/learn/learnreact/forms-state-object-co4014fe8a23d6c6d376747ca
+// https://scrimba.com/learn/learnreact/form-state-object-practice-cob444ddabb8e498d051b98cb
 export default function Form() {
     const [formData, setFormData] = React.useState(
-        { firstName: "", lastName: "" }
+        { firstName: "", lastName: "", email: "" }
     )
 
     console.log(formData)
 
     function handleChange(event) {
-                // console.log(event)
-                // console.log(event.target)
-                // console.log(event.target.value)
-                // console.log(event.target.name)
+        // console.log(event)
+        // console.log(event.target)
+        // console.log(event.target.value)
+        // console.log(event.target.name)
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
@@ -55,6 +55,12 @@ export default function Form() {
                 placeholder="Last Name"
                 onChange={handleChange}
                 name="lastName"
+            />
+            <input
+                type="email"
+                placeholder="Email"
+                onChange={handleChange}
+                name="email"
             />
         </form>
     )
