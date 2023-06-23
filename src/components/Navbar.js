@@ -5,7 +5,7 @@ export default function Navbar(props) {
 
     return (
         <nav
-            className={props.darkMode ? "dark" : ""}
+            className={props.darkMode2 ? "dark" : ""}
         >
             <img
                 className="nav--logo_icon"
@@ -19,7 +19,7 @@ export default function Navbar(props) {
                 <p className="toggler--light">Light</p>
                 <div
                     className="toggler--slider"
-                    onClick={props.toggleDarkMode}
+                    onClick={props.toggleDarkMode2}
                 >
                     <div className="toggler--slider--circle"></div>
                 </div>

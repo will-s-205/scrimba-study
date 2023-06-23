@@ -15,11 +15,11 @@ export default function App() {
   return (
     <div className="container">
       <Navbar
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
+        darkMode2={darkMode}
+        toggleDarkMode2={toggleDarkMode}
       />
       <MainComponent
-        darkMode={darkMode} />
+        darkMode2={darkMode} />
     </div>
   )
 }
