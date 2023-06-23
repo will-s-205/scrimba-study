@@ -1,23 +1,23 @@
-import small_icon from "../img/react-icon-small.png" 
-import React from "react"
-import '../App.scss';
+import '../App.scss'
+import small_icon from "../img/react-icon-small.png"
 
 export default function Navbar(props) {
+
     return (
-         <nav 
-            className={props.darkMode ? "dark": ""}
+        <nav
+            className={props.darkMode ? "dark" : ""}
         >
-            <img 
+            <img
                 className="nav--logo_icon"
                 src={small_icon}
             />
             <h3 className="nav--logo_text">ReactFacts</h3>
-            
-            <div 
-                className="toggler" 
+
+            <div
+                className="toggler"
             >
                 <p className="toggler--light">Light</p>
-                <div 
+                <div
                     className="toggler--slider"
                     onClick={props.toggleDarkMode}
                 >

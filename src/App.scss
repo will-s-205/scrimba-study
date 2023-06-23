@@ -13,14 +13,25 @@ p {
 }
 
 body {
-  margin: 0;
+  // margin: 0;
+  // display: flex;
+  align-items: center;
+  // justify-self: center;
+  // margin: 0 auto;
+  // left: 50%;
+  box-shadow: 0 0 3px #000;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  max-width: 100vw;
+  max-width: 550px;
+  // align-items: center;
+  // justify-self: center;
+  margin: 0 auto;
+  // left: 50%;
+  // max-width: 100vw;
 }
 
 /* NAV styles */
@@ -116,7 +127,7 @@ nav.dark .toggler--slider {
 /* MAIN styles */
 main {
   padding: 57px 27px;
-  background-image: "./img/react-icon-light.png";
+  background-image: url("./img/react-icon-light.png");
   background-repeat: no-repeat;
   background-position: right center;
   flex: 1 1 auto;
@@ -125,7 +136,7 @@ main {
 }
 
 main.dark {
-  background-image: "./img/react-icon-dark.png";
+  background-image: url("./img/react-icon-dark.png");
   background-color: #282D35;
   color: white;
 }
