@@ -4,20 +4,22 @@ import MainComponent from './components/MainContent'
 import Navbar from './components/Navbar'
 
 export default function App() {
-  const[darkMode, setDarkMode] = useState(true)
+  // https://scrimba.com/learn/learnreact/warm-up-add-dark-light-modes-to-reactfacts-site-co5924409bb476cc78b0d818a
+  const [darkMode, setDarkMode] = useState(true)
 
   function toggleDarkMode() {
-      console.log("Toggled")
-      setDarkMode(prevMode =>! prevMode);
+    console.log("Toggled")
+    setDarkMode(prevMode => !prevMode);
   }
 
   return (
     <div className="container">
-      <Navbar 
-      darkMode={darkMode} 
-      toggleDarkMode={toggleDarkMode}/>
-      <MainComponent 
-      darkMode={darkMode}/>
+      <Navbar
+        darkMode={darkMode}
+        toggleDarkMode={toggleDarkMode}
+      />
+      <MainComponent
+        darkMode={darkMode} />
     </div>
   )
 }
