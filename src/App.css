@@ -8,11 +8,11 @@
 .container {
   margin: 5% auto;
   max-width: 400px;
-  /* background-color: #eee; */
   height: 100%;
 }
 
 /* CONTAINER */
+
 
 /* NAVBAR */
 
@@ -58,9 +58,7 @@
 /* MAIN-CONTENT */
 
 .main-content--text {
-  /* margin-left: 20px; */
   padding: 30px;
-  /* text-align: center; */
   background-color: #21222ad4;
   color: #eee;
   line-height: 1.8;
@@ -71,7 +69,6 @@
 }
 
 .main--facts>li::marker {
-  /* content: 'o '; */
   font-size: 1.4em;
   color: #61DAFB;
 }
@@ -82,10 +79,6 @@
 /* FOOTER */
 
 .footer {
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* padding-bottom: 5px; */
-  /* width: 100%; */
   background-color: #2b2c36;
   color: #eee;
   text-align: center;
