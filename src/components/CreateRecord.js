@@ -8,8 +8,8 @@ export default function CreateRecord() {
     );
 
     useEffect(() => {
-        // console.log(records)
-        console.log("useEffect")
+        console.log(records)
+        // console.log("useEffect")
         localStorage.setItem("records", JSON.stringify(records))
     }, [records])
 
@@ -24,23 +24,33 @@ export default function CreateRecord() {
     function handleSubmit(event) {
         event.preventDefault()
         // submitToApi(formData)
-        // console.log(records)
-        console.log("handleSubmit")
+        console.log(records)
+        // console.log("handleSubmit")
     }
 
-    console.log(records)
+    function handleChange(event) {
+
+        const { name, value } = event.target
+        setRecord(prevRec => {
+            console.log(event.target.name)
+            return {
+                ...prevRec,
+                [name]: value
+            }
+        })
+    }
+
+    // console.log(records)
     return (
         <div>
             <h1>localStorage work</h1>
             <form
                 onSubmit={handleSubmit}
             >
-                <button
-                    onClick={createNewRecord}
-                >Create new record</button>
+                <button>Create new record</button>
                 <textarea
                 value={records.body}
-                // onChange={handleChange}
+                onChange={handleChange}
                 name="body"
                 placeholder="type here"
                 ></textarea>
