@@ -11,7 +11,7 @@ export default function CreateRecord() {
         console.log(records)
         // console.log("useEffect")
         localStorage.setItem("records", JSON.stringify(records))
-    }, [records])
+    }, [])
 
     function createNewRecord() {
         const newRecord = {
@@ -32,10 +32,11 @@ export default function CreateRecord() {
 
         const { name, value } = event.target
         setRecord(prevRec => {
-            console.log(event.target.name)
+            // console.log(event.target.name)
             return {
                 ...prevRec,
-                [name]: value
+                id: nanoid(),
+                [name]: value,
             }
         })
     }
@@ -49,9 +50,11 @@ export default function CreateRecord() {
             >
                 <button>Create new record</button>
                 <textarea
+                // name="id"
+                name="body"
+                // value={records.id}
                 value={records.body}
                 onChange={handleChange}
-                name="body"
                 placeholder="type here"
                 ></textarea>
             </form>
