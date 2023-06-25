@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+/* CONTAINER */
+
+.container {
+  margin: 5% auto;
+  max-width: 400px;
+  height: 100%;
+}
+
+/* CONTAINER */
+
+
+/* NAVBAR */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #21222A;
+  padding: 20px 10px;
+}
+
+.nav-logo {
+  width: 30px;
+  margin-right: 8px;
+}
+
+.nav-items {
+  list-style: none;
+  display: flex;
+  font-weight: 600;
+}
+
+.nav-items>li {
+  padding-right: 10px;
+  text-shadow: 3px 0px 3px rgba(0, 0, 0, 0.2);
+  color: #eee;
+}
+
+.react-facts-and-icon {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-weight: bold;
+  color: #61DAFB;
+  font-size: 22px;
+}
+
+/* NAVBAR */
+
+
+/* MAIN-CONTENT */
+
+.main-content--text {
+  padding: 30px;
+  background-color: #21222ad4;
+  color: #eee;
+  line-height: 1.8;
+  background-image: url(../src/img/react-icon-large.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: top;
+}
+
+.main--facts>li::marker {
+  font-size: 1.4em;
+  color: #61DAFB;
+}
+
+/* MAIN-CONTENT */
+
+
+/* FOOTER */
+
+.footer {
+  background-color: #2b2c36;
+  color: #eee;
+  text-align: center;
+  font-weight: bold;
+  font-size: small;
+}
+
+/* FOOTER */
