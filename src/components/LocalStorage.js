@@ -3,7 +3,9 @@ import { useState } from "react";
 import {nanoid} from "nanoid"
 
 export default function Navbar() {
-    const[records, setRecord] = useState(JSON.parse(localStorage.getItem("records")) || []);
+    const[records, setRecord] = useState(
+        () => JSON.parse(localStorage.getItem("records")) || []
+        );
 
     const [currentRecordId, setCurrentRecordId] = useState(
         (records[0] && records[0].id) || ""
@@ -11,7 +13,7 @@ export default function Navbar() {
 
     useEffect(()=> {
         console.log(records)
-        localStorage.setItem("record", JSON.stringify(records))
+        localStorage.setItem("records", JSON.stringify(records))
     }, [records])
 
     function createNewRecord() {
@@ -23,11 +25,16 @@ export default function Navbar() {
         setCurrentRecordId(newRecord.id)
     }
 
+    function getSizeOfStorage() {
+        console.log(localStorage.length)
+    }
+
     return (
         <div>
             <h1>localStorage work</h1>
 
             <button onClick={createNewRecord}>Create new record</button>
+            <button onClick={getSizeOfStorage}>Size of the local storage</button>
         </div>
     )
 }
