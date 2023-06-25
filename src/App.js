@@ -1,11 +1,11 @@
 import './App.scss';
-import LocalStorage from './components/LocalStorage'
+import CreateRecord from './components/CreateRecord'
 
 export default function App() {
   
   return (
     <div>
-      <LocalStorage />
+      <CreateRecord />
     </div>
   )
 }
