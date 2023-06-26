@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { nanoid } from "nanoid"
 
-export default function CreateRecord() {
+export default function LocalStorageCreateRecord() {
     const [records, setRecord] = useState(
         () => JSON.parse(localStorage.getItem("records")) || []
     );
@@ -23,9 +23,10 @@ export default function CreateRecord() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        // submitToApi(formData)
         console.log(records)
-        // console.log("handleSubmit")
+        // submitToApi(records) // send it to localStore instead
+        localStorage.setItem(JSON.stringify(records.id), records.body)
+
     }
 
     function handleChange(event) {
@@ -43,21 +44,18 @@ export default function CreateRecord() {
 
     // console.log(records)
     return (
-        <div>
-            <h1>localStorage work</h1>
-            <form
-                onSubmit={handleSubmit}
-            >
-                <button>Create new record</button>
-                <textarea
+        <form
+            onSubmit={handleSubmit}
+        >
+            <button>Create new record</button>
+            <textarea
                 // name="id"
                 name="body"
                 // value={records.id}
                 value={records.body}
                 onChange={handleChange}
                 placeholder="type here"
-                ></textarea>
-            </form>
-        </div>
+            ></textarea>
+        </form>
     )
 }
