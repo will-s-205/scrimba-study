@@ -4,11 +4,11 @@ import './AppTranslator.scss';
 import { useState } from 'react';
 
 export default function AppTranslatorButtonRow() {
+    const [isShown, setIsShown] = useState(false)
     const [isShown1, setIsShown1] = useState(false)
     const [isShown2, setIsShown2] = useState(false)
     const [isShown3, setIsShown3] = useState(false)
 
-    // ROW 1
     function hide1() {
         console.log("Hidden1");
         setIsShown1(prevShown1 => !prevShown1)
@@ -24,7 +24,6 @@ export default function AppTranslatorButtonRow() {
         setIsShown3(prevShown3 => !prevShown3)
     }
 
-    // ROW 2
     function toggle1() {
         console.log("Toggle");
         setIsShown1(prevShown1 => !prevShown1)

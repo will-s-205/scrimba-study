@@ -3,19 +3,42 @@
 import './AppTranslator.scss';
 import { useState } from 'react';
 
-export default function AppTranslatorCreateNewButton() {
+export default function AppTranslatorCreateNewButton(props) {
     const [elements, setElements] = useState([]);
 
-    const handleClick = () => {
-      const newElement = <button onClick={handleClick}>variable button2</button>;
-      setElements(prevElements => [...prevElements, newElement]);
+    // const deleteByValue = value => {
+    //     setElements(oldValues => {
+    //       return oldValues.filter(data => data !== value)
+    //     })
+    //     console.log(value);
+    //   }
+
+    const deleteByIndex = index => {
+        setElements(oldValues => {
+          return oldValues.filter((_, i) => i !== index)
+        })
+      }
+    
+    let style={display:"none"}
+
+    const createMapButton1 = () => {
+        const newElement = <button onClick={() => deleteByIndex(0)}>map button1</button>;
+        setElements(prevElements => [...prevElements, newElement]);
     };
 
-    const newButton = <button onClick={handleClick}>variable button</button>
+    const createMapButton2 = () => {
+        const newElement = <button onClick={createMapButton2}>map button2</button>;
+        setElements(prevElements => [...prevElements, newElement]);
+    };
+
+    const newButton = <button onClick={createMapButton1}>variable button1</button>
+    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
 
     return (
         <div>
+            <br></br>
             {newButton}
+            {newButton2}
             {elements.map((element, index) => <div key={index}>{element}</div>)}
         </div>
     )
