@@ -8,6 +8,7 @@ export default function AppTranslatorButtonRow() {
     const [isShown2, setIsShown2] = useState(false)
     const [isShown3, setIsShown3] = useState(false)
 
+    // ROW 1
     function hide1() {
         console.log("Hidden1");
         setIsShown1(prevShown1 => !prevShown1)
@@ -22,17 +23,19 @@ export default function AppTranslatorButtonRow() {
         console.log("Hidden3");
         setIsShown3(prevShown3 => !prevShown3)
     }
-    function toggleShown1() {
+
+    // ROW 2
+    function toggle1() {
         console.log("Toggle");
         setIsShown1(prevShown1 => !prevShown1)
     }
 
-    function toggleShown2() {
+    function toggle2() {
         console.log("Toggle");
         setIsShown2(prevShown2 => !prevShown2)
     }
 
-    function toggleShown3() {
+    function toggle3() {
         console.log("Toggle");
         setIsShown3(prevShown3 => !prevShown3)
     }
@@ -51,9 +54,9 @@ export default function AppTranslatorButtonRow() {
             <br></br>
             <div className="buttonRow">
                 <p>ROW 2: </p>
-                <button onClick={toggleShown1}>toggle 1</button>
-                <button onClick={toggleShown2}>toggle 2</button>
-                <button onClick={toggleShown3}>toggle 3</button>
+                <button onClick={toggle1}>toggle 1</button>
+                <button onClick={toggle2}>toggle 2</button>
+                <button onClick={toggle3}>toggle 3</button>
             </div>
         </div>
     )
