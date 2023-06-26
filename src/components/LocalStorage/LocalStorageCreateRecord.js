@@ -1,4 +1,4 @@
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { nanoid } from "nanoid"
 
@@ -11,11 +11,14 @@ export default function LocalStorageCreateRecord() {
         () => JSON.parse(localStorage.getItem("records"))
             || []);
 
-    // useEffect(() => {
-    // console.log(records) // comment records if you don't wanna see all this mess in console
-    // console.log("useEffect")
-    // localStorage.setItem("records", JSON.stringify(records)) // why would I need it here?
-    // }, [records]) 
+    // depending on useEffect app will maintain recods variable 
+    // to see the effect leave console log below 
+    // and commenmt/uncomment useEfect couple of times and reload the page
+    console.log(records)
+    useEffect(() => {
+        console.log("useEffect")
+        localStorage.setItem("records", JSON.stringify(records))
+    }, [records])
 
     // function createNewRecord() {
     //     const newRecord = {
@@ -46,17 +49,18 @@ export default function LocalStorageCreateRecord() {
         console.log("ID: " + records.id + " BODY: " + records.body)
     }
 
+
     return (
-            <form onSubmit={handleSubmit}>
-                <button>Create new record</button>
-                <textarea
-                    // name="id"
-                    name="body"
-                    // value={records.id} // use nanoid instead
-                    value={records.body}
-                    onChange={handleChange}
-                    placeholder="type here"
-                ></textarea>
-            </form>
+        <form onSubmit={handleSubmit}>
+            <button>Create new record</button>
+            <textarea
+                // name="id"
+                name="body"
+                // value={records.id} // use nanoid instead
+                value={records.body}
+                onChange={handleChange}
+                placeholder="type here"
+            ></textarea>
+        </form>
     )
 }
