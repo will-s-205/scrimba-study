@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { nanoid } from "nanoid"
 
-export default function LocalStorageCreateRecord() {
+export default function LocalStorageRemoveRecord() {
     const [records, setRecord] = useState(
         // line below required to keep previous information in localstorage. 
         // to see stored info run a command in browser console "localStorage"
@@ -10,20 +10,6 @@ export default function LocalStorageCreateRecord() {
         // Absence of the second line in that case will cause an error because getItem cannot return null
         () => JSON.parse(localStorage.getItem("records"))
             || []);
-
-    // useEffect(() => {
-    // console.log(records) // comment records if you don't wanna see all this mess in console
-    // console.log("useEffect")
-    // localStorage.setItem("records", JSON.stringify(records)) // why would I need it here?
-    // }, [records]) 
-
-    // function createNewRecord() {
-    //     const newRecord = {
-    //         id: nanoid(),
-    //         body: "text of the record"
-    //     }
-    //     setRecord(prevRecords => [newRecord, ...prevRecords])
-    // }
 
     function handleChange(event) {
         const { name, value } = event.target
@@ -37,26 +23,31 @@ export default function LocalStorageCreateRecord() {
         })
     }
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
-    // Storage only supports storing and retrieving strings. If you want to save other data types, you have to convert them to strings.
     function handleSubmit(event) {
         event.preventDefault()
         // submitToApi(records) // send it to localStore instead
-        localStorage.setItem(JSON.stringify(records.id), records.body)
-        console.log("ID: " + records.id + " BODY: " + records.body)
+        localStorage.removeItem(JSON.stringify(records.id), records.body)
+        console.log("ITEM REMOVED FROM LOCAL STORE - " + records.id)
+    }
+
+    function removeFirstItem() {
+        localStorage.removeItem(localStorage.key(0))
     }
 
     return (
+        <div>
+            <div className="buttonRow">
+                <button onClick={removeFirstItem}>Remove first item in localStorage</button>
+            </div>
             <form onSubmit={handleSubmit}>
-                <button>Create new record</button>
+                <button>Remove record by ID</button>
                 <textarea
-                    // name="id"
-                    name="body"
-                    // value={records.id} // use nanoid instead
-                    value={records.body}
+                    name="id"
+                    value={records.id}
                     onChange={handleChange}
                     placeholder="type here"
                 ></textarea>
             </form>
+        </div>
     )
 }
