@@ -4,20 +4,29 @@ import './AppTranslator.scss';
 import { useState } from 'react';
 
 export default function AppTranslatorButtonRow() {
-    const [isShown, setIsShown] = useState(false)
+    const [isShown1, setIsShown1] = useState(false)
     const [isShown2, setIsShown2] = useState(false)
 
     function clicked() {
         console.log("Clicked");
-        setIsShown(prevShown => !prevShown)
     }
-    
-    function toggleShown(){
+
+    function clicked1() {
+        console.log("Clicked");
+        setIsShown1(prevShown1 => !prevShown1)
+    }
+
+    function clicked2() {
+        console.log("Clicked");
+        setIsShown2(prevShown2 => !prevShown2)
+    }
+
+    function toggleShown1() {
         console.log("Toggle");
-        setIsShown(prevShown1 => !prevShown1)
+        setIsShown1(prevShown1 => !prevShown1)
     }
-    
-    function toggleShown2(){
+
+    function toggleShown2() {
         console.log("Toggle");
         setIsShown2(prevShown2 => !prevShown2)
     }
@@ -29,20 +38,16 @@ export default function AppTranslatorButtonRow() {
             <br></br>
             <div className="buttonRow">
                 <p>Translation row 1: </p>
-                {isShown && 
-                <button onClick={clicked}>clicked 1</button>
-                }
-                {isShown2 && 
-                <button onClick={clicked}>clicked 2</button>
-                }
+                {isShown1 && <button onClick={clicked1}>clicked 1</button>}
+                {isShown2 && <button onClick={clicked2}>clicked 2</button>}
                 <button onClick={clicked}>clicked 3</button>
             </div>
             <br></br>
             <div className="buttonRow">
                 <p>Translation row 2: </p>
-                <button onClick={toggleShown}>clicked 1</button>
-                <button onClick={toggleShown2}>clicked 2</button>
-                <button onClick={clicked}>clicked 3</button>
+                <button onClick={toggleShown1}>show 1</button>
+                <button onClick={toggleShown2}>show 2</button>
+                <button onClick={clicked}>show 3</button>
             </div>
         </div>
     )
