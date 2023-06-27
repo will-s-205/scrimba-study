@@ -4,9 +4,12 @@ import { nanoid } from 'nanoid';
 import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
-export default function AppTranslatorCreateNewButton(props) {
+export default function AppTranslatorCreateNewButton() {
     const [elements, setElements] = useState([
-        {id:''}
+        { id: "", name: "" },
+        // {id:2},
+        // {id:3},
+
         // { id: 1, name: "🍎 Apple" },
         // { id: 2, name: "🍊 Orange" },
         // { id: 3, name: "🍌 Banana" },
@@ -92,8 +95,8 @@ export default function AppTranslatorCreateNewButton(props) {
     };
 
     const createMapButton3 = () => {
-        const newElement = <button id={nanoid()}>map button3</button>
-        setElements(prevElements => [...prevElements, newElement]);
+        const newElement = <button>map button3</button>
+        setElements(prevElements => [...prevElements, { id: nanoid() }, {name: "button333"}]);
     };
 
     const newButton = <button onClick={createMapButton1}>variable button1</button>
@@ -110,26 +113,41 @@ export default function AppTranslatorCreateNewButton(props) {
 
     return (
         <div className='container2'>
-            <br></br>
-            {newButton}
-            {newButton2}
-            {newButton3}
-            <br></br>
-            <br></br>
-            {
-                elements.map((element) =>
-                    <div
-                        key={nanoid()}
-                        id={nanoid()}
-                        className='var-button1'
-                        onClick={() => deleteById2(element.id)}
-                    >
-                        <button
-                            // index={index}
-                        >map button3</button>
-                        {/* <button onClick={() => deleteById2(element.id)}>-</button> */}
-                    </div>)
-            }
+            <div className='container3'>
+                <h2>Container 3</h2>
+                <br></br>
+                {newButton}
+                {newButton2}
+                {newButton3}
+                <br></br>
+                <br></br>
+            </div>
+            <div className='container4'>
+                <h2>Container 4</h2>
+                {
+                    // elements.map((element) => 
+                    elements.map((element, index) =>
+                        <div
+                            key={index}
+                            onClick={() => deleteById2(element.id)}
+                        >
+                            {element.id} 
+                            {element.name}
+                        </div>)
+                    // <div
+                    //     // key={nanoid()}
+                    //     // id={nanoid()}
+                    //     className='var-button1'
+                    //     onClick={() => deleteById2(element.id)}
+                    //     >
+                    //     <button
+                    //         // index={index}
+                    //     >map button3</button>
+                    //     {/* <button onClick={() => deleteById2(element.id)}>-</button> */}
+                    // </div>
+                    // )
+                }
+            </div>
         </div>
     )
 }
