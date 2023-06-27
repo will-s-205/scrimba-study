@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton() {
     const [elements, setElements] = useState([
-        { id: "", name: "" },
+        // { id: "", name: "", boolean: true },
         // {id:2},
         // {id:3},
 
@@ -16,9 +16,9 @@ export default function AppTranslatorCreateNewButton() {
         // { id: 4, name: "🍇 Grapes" },
     ]);
 
-    // useEffect(()=> {
-
-    // }, [elements])
+    useEffect(() => {
+        console.log(elements)
+    }, [elements])
 
     const deleteById = id => {
         setElements(oldValues => {
@@ -54,60 +54,30 @@ export default function AppTranslatorCreateNewButton() {
         })
     }
 
-    // function delete1() {
-    //     elements.map(
-
-    //     )
-
-    //     // setElements(oldValues => {
-    //     //     return oldValues.filter(data => data !== name)
-    //     // })
-    // }
-
-    // let style = { display: "none" }
-
-    const handleClick = (event) => {
-        // alert(event.target.innerText);    // Click Me
-        // alert(event.target.tagName);      // BUTTON
-        // console.log(event.target.target);
-        // console.log(event.target.target.value);
-        // console.log(event.target.value);
-        // console.log(event.target.name);
-        console.log(event.target.tagName); // BUTTON
-        console.log(event.target.innerText); // -
-    }
-
     const deleteByValue = (value) => {
         setElements(oldValues => {
-            return oldValues.filter(data => data == value)
+            return oldValues.filter(data => data !== value)
         })
     }
 
-    // const createMapButton1 = () => {
-    //     const newElement = <div><button onClick={() => deleteByValue('map button1')}>map button1</button><button onClick={handleClick}>-</button></div>
-    //     setElements(prevElements => [...prevElements, newElement]);
-    // };
+    // if (deleteByValue(elements[0].name)!==null) {} // IF NAME ALREADY EXIST
 
-    // const createMapButton2 = () => {
-    //     const newElement = <button onClick={() => deleteByIndex(0)}>map button2</button>;
-    //     setElements(prevElements => [...prevElements, newElement]);
-    //     console.log()
-    // };
-
-    // const createMapButton3 = () => {
-    //     const newElement = <button>map button3</button>
-    //     setElements(prevElements => [...prevElements, { id: nanoid() }, { name: "button333" }]);
-    // };
 
     const newButton =
         <button
-            onClick={() => setElements(prevElements => [
-                ...prevElements,
-                { id: nanoid() },
-                { name: "how" },
-            ])}
+            onClick={() => {
+                if (elements !== "") {
+                    setElements(prevElements => [
+                        ...prevElements,
+                        { id: nanoid() },
+                        { name: "How" },
+                    ])
+                }
+            }
+            }
+
         >
-            how
+            How
         </button>
 
     const newButton2 =
@@ -143,12 +113,33 @@ export default function AppTranslatorCreateNewButton() {
             day
         </button>
 
-    function addNewButton(id, name, classname) {
-        const current = [...elements];
-        // current.push(...elements);
-        // current.push({ id: 2, name: "🍊 Orange" });
-        current.push({ id: id, name: name, classname: classname });
-        setElements(current);
+    function forEachKey() {
+        for (let i = 0; i < elements.length; i++) {
+            if (i % 6 == 0) {
+                console.log(elements[i].name);
+            }
+
+        }
+    }
+
+    const names = Object.keys(elements)
+    const values = Object.values(elements)
+    const values1 = Object.values(elements)[1]
+    const entries = Object.entries(elements)
+    // const entries1 = Object.entries(elements)[1][1]
+    // const name1 = entries[1][1]
+    // const valueNames = values[1]
+
+    const button5 =
+        <button
+            // onClick={() => console.log(forEachKey())}
+            onClick={() => console.log(values1.name)}
+        >
+            console log
+        </button>
+
+    function toggleShown() {
+        setElements(prevShown => !prevShown)
     }
 
     return (
@@ -174,14 +165,16 @@ export default function AppTranslatorCreateNewButton() {
                         >
                             {/* {element.id} */} {element.name}
                         </div>
-
                     )}
             </div>
-
+            {button5}
         </div>
     )
 }
 
-
 // if element is exist by id or name
     // do not create more
+
+// how to check results?
+
+// How to enable voice reading?
