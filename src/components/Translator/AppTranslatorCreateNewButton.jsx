@@ -116,7 +116,7 @@ export default function AppTranslatorCreateNewButton(props) {
                     <div key={element.id}>
                         <button>{element.name}</button>
                         <button onClick={() => addNewButton(nanoid(), element.name)}>+</button>
-                        <button onClick={() => removeButton(element.id, element.name)}>-</button>
+                        <button onClick={() => deleteById2(element.id)}>-</button>
                     </div>)
             }
         </div>
