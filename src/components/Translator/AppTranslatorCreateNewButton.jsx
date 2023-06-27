@@ -6,10 +6,10 @@ import { nanoid } from "nanoid"
 
 export default function AppTranslatorCreateNewButton(props) {
     const [elements, setElements] = useState([
-        { id: 1, name: "🍎 Apple" },
-        { id: 2, name: "🍊 Orange" },
-        { id: 3, name: "🍌 Banana" },
-        { id: 4, name: "🍇 Grapes" },
+        { id: 1, name: "🍎 Apple", classname: "row" },
+        { id: 2, name: "🍊 Orange", classname: "row" },
+        { id: 3, name: "🍌 Banana", classname: "row" },
+        { id: 4, name: "🍇 Grapes", classname: "row" },
     ]);
 
     // useEffect(()=> {
@@ -89,33 +89,21 @@ export default function AppTranslatorCreateNewButton(props) {
         })
     }
 
-    function addNewButton(id, name) {
+    function addNewButton(id, name, classname) {
         const current = [...elements];
         // current.push(...elements);
         // current.push({ id: 2, name: "🍊 Orange" });
-        current.push({ id: id, name: name });
-        setElements(current);
-    }
-
-    function removeButton(id, name) {
-        const current = [...elements];
-        current.pop({ id: id, name: name });
+        current.push({ id: id, name: name, classname: classname });
         setElements(current);
     }
 
     return (
-        <div>
-            {/* <br></br>
-            {newButton}
-            {newButton2}
-            {newButton3}
-            <br></br> */}
-            <br></br>
+        <div className='container'>
             {
                 elements.map(element =>
-                    <div key={element.id}>
+                    <div key={element.id} className={element.classname}>
                         <button>{element.name}</button>
-                        <button onClick={() => addNewButton(nanoid(), element.name)}>+</button>
+                        <button onClick={() => addNewButton( nanoid(),element.name, element.classname + "-two")}>+</button>
                         <button onClick={() => deleteById2(element.id)}>-</button>
                     </div>)
             }

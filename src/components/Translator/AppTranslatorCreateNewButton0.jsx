@@ -89,7 +89,7 @@ export default function AppTranslatorCreateNewButton(props) {
     }
 
     return (
-        <div>
+        <div className='container2'>
             <br></br>
             {newButton}
             {newButton2}
@@ -98,7 +98,7 @@ export default function AppTranslatorCreateNewButton(props) {
             <br></br>
             {
                 elements.map((element, index) =>
-                    <div key={index} index={index}>{element}</div>)
+                    <div key={index} index={index} className='var-button'>{element}</div>)
             }
             {/* {
                 elements.map(element =>

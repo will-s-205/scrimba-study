@@ -2,6 +2,7 @@
 import './AppTranslator.scss';
 import AppTranslatorButtonRow from './AppTranslatorButtonRow';
 import AppTranslatorCreateNewButton from './AppTranslatorCreateNewButton';
+import AppTranslatorCreateNewButton0 from './AppTranslatorCreateNewButton0';
 
 export default function AppTranslator() {
 
@@ -10,6 +11,7 @@ export default function AppTranslator() {
             <br></br>
             <h1>AppTranslator</h1>
             {/* <AppTranslatorButtonRow /> */}
+            <AppTranslatorCreateNewButton0 />
             <AppTranslatorCreateNewButton />
         </div>
     )
