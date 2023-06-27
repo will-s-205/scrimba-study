@@ -65,20 +65,21 @@ export default function AppTranslatorCreateNewButton(props) {
         console.log("created button 2")
     };
 
-    const createMapButton3 = (name) => {
-        const newElement = <div>{elements}</div>;
-        setElements(prevElements => [...prevElements, elements]);
+    const createMapButton3 = () => {
+        const newElement = <button onClick={() => deleteById2(elements.id)}>{elements.name}</button>
+        setElements(prevElements => [...prevElements, newElement]);
+
     };
+
+    const newButton = <button onClick={createMapButton1}>variable button1</button>
+    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
+    const newButton3 = <button onClick={createMapButton3}>variable button3</button>
 
     const deleteById2 = id => {
         setElements(oldValues => {
             return oldValues.filter(data => data.id !== id)
         })
     }
-
-    const newButton = <button onClick={createMapButton1}>variable button1</button>
-    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
-    const newButton3 = <button onClick={createMapButton3}>variable button3</button>
 
     return (
         <div>
@@ -96,7 +97,9 @@ export default function AppTranslatorCreateNewButton(props) {
                     <div key={element.id}>
                         {/* <div> {element} </div> */}
                         {/* <span>{element.name}</span> */}
-                        <span onClick={() => deleteById2(element.id)}>{element.name}</span>
+                        <button>{element.name}</button>
+                        <br />
+                        <button onClick={() => deleteById2(element.id)}>{element.name}</button>
                     </div>)
             }
         </div>
