@@ -1,10 +1,12 @@
 // https://scrimba.com/learn/learnreact/notes-app-sync-notes-with-localstorage-co3c5495b8d7949e81b79988a
 // JOKES // Hide or show elements // https://scrimba.com/learn/learnreact/conditional-rendering--co00d4a3c9a328b5ff96f418e
+import { nanoid } from 'nanoid';
 import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton(props) {
     const [elements, setElements] = useState([
+        {id:''}
         // { id: 1, name: "🍎 Apple" },
         // { id: 2, name: "🍊 Orange" },
         // { id: 3, name: "🍌 Banana" },
@@ -14,13 +16,6 @@ export default function AppTranslatorCreateNewButton(props) {
     // useEffect(()=> {
 
     // }, [elements])
-
-    const deleteByValue = value => {
-        setElements(oldValues => {
-            return oldValues.filter(data => data !== value)
-        })
-        console.log(value);
-    }
 
     const deleteById = id => {
         setElements(oldValues => {
@@ -42,39 +37,7 @@ export default function AppTranslatorCreateNewButton(props) {
         console.log(name)
     }
 
-    // function delete1() {
-    //     elements.map(
-
-    //     )
-
-    //     // setElements(oldValues => {
-    //     //     return oldValues.filter(data => data !== name)
-    //     // })
-    // }
-
-    // let style = { display: "none" }
-
-    const createMapButton1 = () => {
-        const newElement = <button onClick={() => deleteByIndex(0)}>map button1</button>;
-        setElements(prevElements => [...prevElements, newElement]);
-    };
-
-    const createMapButton2 = () => {
-        const newElement = <button onClick={() => deleteByIndex(0)}>map button2</button>;
-        setElements(prevElements => [...prevElements, newElement]);
-        console.log("created button 2")
-    };
-
-    const createMapButton3 = () => {
-        const newElement = <button onClick={() => deleteByIndex(0)}>{elements}</button>
-        setElements(prevElements => [...prevElements, newElement]);
-    };
-
-    const newButton = <button onClick={createMapButton1}>variable button1</button>
-    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
-    const newButton3 = <button onClick={createMapButton3}>variable button3</button>
-
-    // delete on item
+    // delete one item
     const deleteById2 = id => {
         setElements(oldValues => {
             return oldValues.filter(data => data.id !== id)
@@ -88,6 +51,63 @@ export default function AppTranslatorCreateNewButton(props) {
         })
     }
 
+    // function delete1() {
+    //     elements.map(
+
+    //     )
+
+    //     // setElements(oldValues => {
+    //     //     return oldValues.filter(data => data !== name)
+    //     // })
+    // }
+
+    // let style = { display: "none" }
+
+    const handleClick = (event) => {
+        // alert(event.target.innerText);    // Click Me
+        // alert(event.target.tagName);      // BUTTON
+        // console.log(event.target.target);
+        // console.log(event.target.target.value);
+        // console.log(event.target.value);
+        // console.log(event.target.name);
+        console.log(event.target.tagName); // BUTTON
+        console.log(event.target.innerText); // -
+    }
+
+    const deleteByValue = (value) => {
+        setElements(oldValues => {
+            return oldValues.filter(data => data == value)
+        })
+    }
+
+    const createMapButton1 = () => {
+        const newElement = <div><button onClick={() => deleteByValue('map button1')}>map button1</button><button onClick={handleClick}>-</button></div>
+        setElements(prevElements => [...prevElements, newElement]);
+    };
+
+    const createMapButton2 = () => {
+        const newElement = <button onClick={() => deleteByIndex(0)}>map button2</button>;
+        setElements(prevElements => [...prevElements, newElement]);
+        console.log()
+    };
+
+    const createMapButton3 = () => {
+        const newElement = <button id={nanoid()}>map button3</button>
+        setElements(prevElements => [...prevElements, newElement]);
+    };
+
+    const newButton = <button onClick={createMapButton1}>variable button1</button>
+    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
+    const newButton3 = <button onClick={createMapButton3}>variable button3</button>
+
+    function addNewButton(id, name, classname) {
+        const current = [...elements];
+        // current.push(...elements);
+        // current.push({ id: 2, name: "🍊 Orange" });
+        current.push({ id: id, name: name, classname: classname });
+        setElements(current);
+    }
+
     return (
         <div className='container2'>
             <br></br>
@@ -97,15 +117,19 @@ export default function AppTranslatorCreateNewButton(props) {
             <br></br>
             <br></br>
             {
-                elements.map((element, index) =>
-                    <div key={index} index={index} className='var-button'>{element}</div>)
-            }
-            {/* {
-                elements.map(element =>
-                    <div key={element.id}>
-                        <button onClick={() => addById2(element.id)}>{element.name}</button>
+                elements.map((element) =>
+                    <div
+                        key={nanoid()}
+                        id={nanoid()}
+                        className='var-button1'
+                        onClick={() => deleteById2(element.id)}
+                    >
+                        <button
+                            // index={index}
+                        >map button3</button>
+                        {/* <button onClick={() => deleteById2(element.id)}>-</button> */}
                     </div>)
-            } */}
+            }
         </div>
     )
 }

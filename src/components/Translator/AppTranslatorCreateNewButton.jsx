@@ -75,7 +75,7 @@ export default function AppTranslatorCreateNewButton(props) {
     const newButton2 = <button onClick={createMapButton2}>variable button2</button>
     const newButton3 = <button onClick={createMapButton3}>variable button3</button>
 
-    // delete on item
+    // delete one item
     const deleteById2 = id => {
         setElements(oldValues => {
             return oldValues.filter(data => data.id !== id)
@@ -101,9 +101,11 @@ export default function AppTranslatorCreateNewButton(props) {
         <div className='container'>
             {
                 elements.map(element =>
-                    <div key={element.id} className={element.classname}>
+                    <div 
+                    key={element.id} 
+                    className={element.classname}>
                         <button>{element.name}</button>
-                        <button onClick={() => addNewButton( nanoid(),element.name, element.classname + "-two")}>+</button>
+                        <button onClick={() => addNewButton( nanoid(), element.name, element.classname + "-two")}>+</button>
                         <button onClick={() => deleteById2(element.id)}>-</button>
                     </div>)
             }
