@@ -4,7 +4,12 @@ import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton(props) {
-    const [elements, setElements] = useState([]);
+    const [elements, setElements] = useState([
+        { id: 1, name: "🍎 Apple" },
+        { id: 2, name: "🍊 Orange" },
+        { id: 3, name: "🍌 Banana" },
+        { id: 4, name: "🍇 Grapes" },
+    ]);
 
     // useEffect(()=> {
 
@@ -29,14 +34,14 @@ export default function AppTranslatorCreateNewButton(props) {
             return oldValues.filter((_, i) => i !== index)
         })
     }
-    
+
     const deleteByName = name => {
         setElements(oldValues => {
             return oldValues.filter(data => data !== name)
         })
         console.log(name)
     }
-    
+
     // function delete1() {
     //     elements.map(
 
@@ -60,12 +65,16 @@ export default function AppTranslatorCreateNewButton(props) {
         console.log("created button 2")
     };
 
-    const createMapButton3= (name) => {
-        // const newElement = <button onClick={() => deleteByIndex(index)} index={createMapButton3.length}>map button3</button>;
-        // const newElement = <button onClick={() => deleteByIndex(index)} name={createMapButton3.name}>map button3</button>;
-        const newElement = <button onClick={() => deleteByName("map button3")} name={createMapButton3.name}>map button3</button>;
-        setElements(prevElements => [...prevElements, newElement]);
+    const createMapButton3 = (name) => {
+        const newElement = <div>{elements}</div>;
+        setElements(prevElements => [...prevElements, elements]);
     };
+
+    const deleteById2 = id => {
+        setElements(oldValues => {
+            return oldValues.filter(data => data.id !== id)
+        })
+    }
 
     const newButton = <button onClick={createMapButton1}>variable button1</button>
     const newButton2 = <button onClick={createMapButton2}>variable button2</button>
@@ -79,8 +88,16 @@ export default function AppTranslatorCreateNewButton(props) {
             {newButton3}
             <br></br>
             <br></br>
-            {elements.map((element, index) => 
-            <div key={index} index={index}>{element}</div>)
+            {
+                // elements.map((element, index) => 
+                // <div key={index} index={index}>{element}</div>)
+
+                elements.map(element =>
+                    <div key={element.id}>
+                        {/* <div> {element} </div> */}
+                        {/* <span>{element.name}</span> */}
+                        <span onClick={() => deleteById2(element.id)}>{element.name}</span>
+                    </div>)
             }
         </div>
     )
