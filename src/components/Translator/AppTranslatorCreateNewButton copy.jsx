@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton(props) {
     const [elements, setElements] = useState([
-        { id: 1, name: "🍎 Apple" },
-        { id: 2, name: "🍊 Orange" },
-        { id: 3, name: "🍌 Banana" },
-        { id: 4, name: "🍇 Grapes" },
+        // { id: 1, name: "🍎 Apple" },
+        // { id: 2, name: "🍊 Orange" },
+        // { id: 3, name: "🍌 Banana" },
+        // { id: 4, name: "🍇 Grapes" },
     ]);
 
     // useEffect(()=> {
@@ -66,7 +66,7 @@ export default function AppTranslatorCreateNewButton(props) {
     };
 
     const createMapButton3 = () => {
-        const newElement = <button onClick={() => deleteById2(elements.id)}>{elements}</button>
+        const newElement = <button onClick={() => deleteByIndex(0)}>{elements}</button>
         setElements(prevElements => [...prevElements, newElement]);
     };
 
@@ -88,20 +88,6 @@ export default function AppTranslatorCreateNewButton(props) {
         })
     }
 
-    function addNewButton(id, name) {
-        const current = [...elements];
-        // current.push(...elements);
-        // current.push({ id: 2, name: "🍊 Orange" });
-        current.push({ id: id, name: name });
-        setElements(current);
-    }
-
-    function removeButton(id, name) {
-        const current = [...elements];
-        current.pop({ id: id, name: name });
-        setElements(current);
-    }
-
     return (
         <div>
             <br></br>
@@ -111,17 +97,15 @@ export default function AppTranslatorCreateNewButton(props) {
             <br></br>
             <br></br>
             {
-                // elements.map((element, index) =>
-                //     <div key={index} index={index}>{element}</div>)
+                elements.map((element, index) =>
+                    <div key={index} index={index}>{element}</div>)
             }
-            {
+            {/* {
                 elements.map(element =>
                     <div key={element.id}>
-                        <button>{element.name}</button>
-                        <button onClick={() => addNewButton(element.id, element.name)}>+</button>
-                        <button onClick={() => removeButton(element.id, element.name)}>-</button>
+                        <button onClick={() => addById2(element.id)}>{element.name}</button>
                     </div>)
-            }
+            } */}
         </div>
     )
 }
