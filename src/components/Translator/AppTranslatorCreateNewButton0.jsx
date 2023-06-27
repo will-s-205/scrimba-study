@@ -35,7 +35,7 @@ export default function AppTranslatorCreateNewButton() {
 
     const deleteByName = name => {
         setElements(oldValues => {
-            return oldValues.filter(data => data !== name)
+            return oldValues.filter(data => data.name !== name)
         })
         console.log(name)
     }
@@ -48,7 +48,7 @@ export default function AppTranslatorCreateNewButton() {
     }
 
     // choose one item only
-    const addById2 = id => {
+    const keepOnlyOneItemById2 = id => {
         setElements(oldValues => {
             return oldValues.filter(data => data.id == id)
         })
@@ -83,25 +83,65 @@ export default function AppTranslatorCreateNewButton() {
         })
     }
 
-    const createMapButton1 = () => {
-        const newElement = <div><button onClick={() => deleteByValue('map button1')}>map button1</button><button onClick={handleClick}>-</button></div>
-        setElements(prevElements => [...prevElements, newElement]);
-    };
+    // const createMapButton1 = () => {
+    //     const newElement = <div><button onClick={() => deleteByValue('map button1')}>map button1</button><button onClick={handleClick}>-</button></div>
+    //     setElements(prevElements => [...prevElements, newElement]);
+    // };
 
-    const createMapButton2 = () => {
-        const newElement = <button onClick={() => deleteByIndex(0)}>map button2</button>;
-        setElements(prevElements => [...prevElements, newElement]);
-        console.log()
-    };
+    // const createMapButton2 = () => {
+    //     const newElement = <button onClick={() => deleteByIndex(0)}>map button2</button>;
+    //     setElements(prevElements => [...prevElements, newElement]);
+    //     console.log()
+    // };
 
-    const createMapButton3 = () => {
-        const newElement = <button>map button3</button>
-        setElements(prevElements => [...prevElements, { id: nanoid() }, {name: "button333"}]);
-    };
+    // const createMapButton3 = () => {
+    //     const newElement = <button>map button3</button>
+    //     setElements(prevElements => [...prevElements, { id: nanoid() }, { name: "button333" }]);
+    // };
 
-    const newButton = <button onClick={createMapButton1}>variable button1</button>
-    const newButton2 = <button onClick={createMapButton2}>variable button2</button>
-    const newButton3 = <button onClick={createMapButton3}>variable button3</button>
+    const newButton =
+        <button
+            onClick={() => setElements(prevElements => [
+                ...prevElements,
+                { id: nanoid() },
+                { name: "🍊 Orange" },
+            ])}
+        >
+            🍊 Orange
+        </button>
+
+    const newButton2 =
+        <button
+            onClick={() => setElements(prevElements => [
+                ...prevElements,
+                { id: nanoid() },
+                { name: "🍌 Banana" },
+            ])}
+        >
+            🍌 Banana
+        </button>
+
+    const newButton3 =
+        <button
+            onClick={() => setElements(prevElements => [
+                ...prevElements,
+                { id: nanoid() },
+                { name: "🍇 Grapes" },
+            ])}
+        >
+            🍇 Grapes
+        </button>
+
+    const newButton4 =
+        <button
+            onClick={() => setElements(prevElements => [
+                ...prevElements,
+                { id: nanoid() },
+                { name: "🍎 Apple" },
+            ])}
+        >
+            🍎 Apple
+        </button>
 
     function addNewButton(id, name, classname) {
         const current = [...elements];
@@ -112,42 +152,35 @@ export default function AppTranslatorCreateNewButton() {
     }
 
     return (
-        <div className='container2'>
-            <div className='container3'>
-                <h2>Container 3</h2>
-                <br></br>
+        <div className='container1'>
+            <h2>Write in English:</h2>
+
+            <div className='container2'>
+                {/* <h2>Container 3</h2> */}
                 {newButton}
                 {newButton2}
                 {newButton3}
-                <br></br>
-                <br></br>
+                {newButton4}
             </div>
-            <div className='container4'>
-                <h2>Container 4</h2>
+
+            <div className='container3'>
+                {/* <h2>Container 4</h2> */}
                 {
-                    // elements.map((element) => 
                     elements.map((element, index) =>
                         <div
+                            className='answer-buttons'
                             key={index}
-                            onClick={() => deleteById2(element.id)}
+                            // id={element.id}
+                            onClick={() => deleteByName(element.name)}
+                        // onClick={() => deleteById2(element.id)}
                         >
-                            {element.id} 
+                            {/* {element.id} */}
                             {element.name}
-                        </div>)
-                    // <div
-                    //     // key={nanoid()}
-                    //     // id={nanoid()}
-                    //     className='var-button1'
-                    //     onClick={() => deleteById2(element.id)}
-                    //     >
-                    //     <button
-                    //         // index={index}
-                    //     >map button3</button>
-                    //     {/* <button onClick={() => deleteById2(element.id)}>-</button> */}
-                    // </div>
-                    // )
-                }
+                        </div>
+
+                    )}
             </div>
+
         </div>
     )
 }

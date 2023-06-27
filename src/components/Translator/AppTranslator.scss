@@ -13,7 +13,17 @@
 }
 
 h1 {
+    margin: 30px auto;
+    padding: 10px;
     text-align: center;
+    color: #eee;
+    max-width: 450px;
+    // border: 1px solid #000;
+    border-radius: 50px;
+    box-shadow: 0 0 3px #000;
+    text-shadow: 0 0 3px #000;
+    background: radial-gradient(circle, hsla(0, 0%, 84%, .291) 47%, hsla(0, 0%, 89%, 0.497) 91%);
+    -webkit-text-stroke: 0.5px gray;
 }
 
 .container {
@@ -28,15 +38,82 @@ h1 {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.row {
-    // display: flex;
-    // float: right;
-    // margin-bottom: 200px;
-    // align-items: start;
+.container1 {
+    margin: 10vh auto;
+    max-width: 450px;
+    height: 250px;
+    padding: 30px;
+    // border: 1px solid #000;
+    border-radius: 50px;
+    box-shadow: 0 0 3px #000;
+    text-align: center;
+
+    h2 {
+        padding: 10px;
+        margin: 0 auto;
+        color: #eee;
+        max-width: 250px;
+        // border: 1px solid #000;
+        border-radius: 50px;
+        box-shadow: 0 0 3px #000;
+        text-shadow: 0 0 2px #000;
+        background: radial-gradient(circle, hsla(0, 0%, 84%, .291) 47%, hsla(0, 0%, 89%, 0.497) 91%);
+        -webkit-text-stroke: 0.5px gray;
+    }
 }
 
-.row-two {
-    // display: flex;
-    // align-items: start;
-    // float: left;
+.container2 {
+    display: flex;
+    // justify-content: center;
+    box-shadow: 0 0 3px #000;
+    padding: 10px;
+    margin: 45px;
+    border-radius: 30px;
+}
+
+.container3 {
+    display: flex;
+    // justify-content: center;
+    box-shadow: 0 0 3px #000;
+    padding: 10px;
+    margin: 45px;
+    height: 25px;
+    border-radius: 30px;
+    
+}
+
+button {
+    border-radius: 10px;
+    border: 1px solid #000;
+    margin: 1px;
+}
+.answer-buttons{
+    border: none;
+    box-shadow: 0 0 3px #000;
+    // padding: 1px;
+    margin: 1px;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+@media (max-width: 550px) {
+    .container1 {
+        max-width: 100%;
+        margin: 0 0 0 0;
+
+
+    }
+
+    .container1>button {
+        padding: 0.5rem;
+    }
+
+    .container2 {
+        // width: 100%;
+        // margin: 0;
+    }
+
+    .container3 {
+        // width: 100%;
+    }
 }
