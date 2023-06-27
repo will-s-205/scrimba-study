@@ -42,8 +42,6 @@ export default function AppTranslatorButtonRow() {
     return (
         <div>
             <br></br>
-            <h1>AppTranslator</h1>
-            <br></br>
             <div className="buttonRow">
                 <p>ROW 1: </p>
                 {isShown1 && <button onClick={hide1}>hide 1</button>}

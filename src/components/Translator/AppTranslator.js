@@ -7,7 +7,9 @@ export default function AppTranslator() {
 
     return (
         <div>
-            <AppTranslatorButtonRow />
+            <br></br>
+            <h1>AppTranslator</h1>
+            {/* <AppTranslatorButtonRow /> */}
             <AppTranslatorCreateNewButton />
         </div>
     )

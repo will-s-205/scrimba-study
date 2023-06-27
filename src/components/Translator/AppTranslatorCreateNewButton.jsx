@@ -2,6 +2,7 @@
 // JOKES // Hide or show elements // https://scrimba.com/learn/learnreact/conditional-rendering--co00d4a3c9a328b5ff96f418e
 import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
+import { nanoid } from "nanoid"
 
 export default function AppTranslatorCreateNewButton(props) {
     const [elements, setElements] = useState([
@@ -104,21 +105,17 @@ export default function AppTranslatorCreateNewButton(props) {
 
     return (
         <div>
-            <br></br>
+            {/* <br></br>
             {newButton}
             {newButton2}
             {newButton3}
+            <br></br> */}
             <br></br>
-            <br></br>
-            {
-                // elements.map((element, index) =>
-                //     <div key={index} index={index}>{element}</div>)
-            }
             {
                 elements.map(element =>
                     <div key={element.id}>
                         <button>{element.name}</button>
-                        <button onClick={() => addNewButton(element.id, element.name)}>+</button>
+                        <button onClick={() => addNewButton(nanoid(), element.name)}>+</button>
                         <button onClick={() => removeButton(element.id, element.name)}>-</button>
                     </div>)
             }
