@@ -8,7 +8,7 @@ export default function AppTranslator() {
 
     return (
         <div>
-            <h1>How was your day?</h1>
+            <h1>Günün nasıldı?</h1>
             {/* <AppTranslatorButtonRow />
             <AppTranslatorCreateNewButton /> */}
             <AppTranslatorCreateNewButton0 />

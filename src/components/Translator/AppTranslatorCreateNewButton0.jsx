@@ -104,10 +104,10 @@ export default function AppTranslatorCreateNewButton() {
             onClick={() => setElements(prevElements => [
                 ...prevElements,
                 { id: nanoid() },
-                { name: "🍊 Orange" },
+                { name: "how" },
             ])}
         >
-            🍊 Orange
+            how
         </button>
 
     const newButton2 =
@@ -115,10 +115,10 @@ export default function AppTranslatorCreateNewButton() {
             onClick={() => setElements(prevElements => [
                 ...prevElements,
                 { id: nanoid() },
-                { name: "🍌 Banana" },
+                { name: "your" },
             ])}
         >
-            🍌 Banana
+            your
         </button>
 
     const newButton3 =
@@ -126,10 +126,10 @@ export default function AppTranslatorCreateNewButton() {
             onClick={() => setElements(prevElements => [
                 ...prevElements,
                 { id: nanoid() },
-                { name: "🍇 Grapes" },
+                { name: "was" },
             ])}
         >
-            🍇 Grapes
+            was
         </button>
 
     const newButton4 =
@@ -137,10 +137,10 @@ export default function AppTranslatorCreateNewButton() {
             onClick={() => setElements(prevElements => [
                 ...prevElements,
                 { id: nanoid() },
-                { name: "🍎 Apple" },
+                { name: "day" },
             ])}
         >
-            🍎 Apple
+            day
         </button>
 
     function addNewButton(id, name, classname) {
@@ -169,13 +169,10 @@ export default function AppTranslatorCreateNewButton() {
                     elements.map((element, index) =>
                         <div
                             className='answer-buttons'
-                            key={index}
-                            // id={element.id}
-                            onClick={() => deleteByName(element.name)}
-                        // onClick={() => deleteById2(element.id)}
+                            key={index} // id={element.id}
+                            onClick={() => deleteByName(element.name)} // onClick={() => deleteById2(element.id)}
                         >
-                            {/* {element.id} */}
-                            {element.name}
+                            {/* {element.id} */} {element.name}
                         </div>
 
                     )}
@@ -184,3 +181,7 @@ export default function AppTranslatorCreateNewButton() {
         </div>
     )
 }
+
+
+// if element is exist by id or name
+    // do not create more
