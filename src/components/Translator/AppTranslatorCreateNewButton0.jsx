@@ -5,7 +5,7 @@ import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton() {
-    const[staleVoice, setStaleVoice] = useState([readTitle])
+    const[staleVoice] = useState([readTitle])
     const [elements, setElements] = useState([
         // { id: "", name: "", boolean: true },
         // {id:2},
