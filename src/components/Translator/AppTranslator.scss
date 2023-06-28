@@ -17,7 +17,7 @@ h1 {
     padding: 10px;
     text-align: center;
     color: #eee;
-    max-width: 450px;
+    max-width: 650px;
     // border: 1px solid #000;
     border-radius: 50px;
     box-shadow: 0 0 3px #000;
@@ -101,6 +101,18 @@ button {
     font-size: 0.9rem;
     text-indent: 1px;
     margin-right: 2px;
+}
+
+.check-button {
+    margin-top: 20px;
+    box-shadow: 1px 1px 3px #000;
+
+    &:hover {
+        // transform: translateY(-0.5rem);
+        // color: var(--primary-dark);
+        box-shadow: 1px 1px gray;
+        transition: all .2s ease;
+    }
 }
 
 @media (max-width: 550px) {
