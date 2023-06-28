@@ -1,78 +1,20 @@
 import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
 import './AppTranslatorVoice.scss';
-// import { useEffect, useState } from 'react';
+import wave from '../../img/wave.gif'
 
 export default function AppTranslatorVoice() {
     const [text, setText] = useState('')
     const [voices, setVoices] = useState([]);
-    const [lang, setLang] = useState(
-        ''
-        // "Microsoft David - English (United States)"
-        );
+    const [lang, setLang] = useState('');
 
-    console.log(text)
+    // console.log(text)
     useEffect(() => {
         // console.log("useEffect")
-        // localStorage.setItem("records", JSON.stringify(records))
     }, [text])
 
     // // Init SpeechSynth API
     const synth = window.speechSynthesis;
-
-    // // DOM Elements
-    // const textForm = document.querySelector('form');
-    // const textInput = document.querySelector('#text-input');
-    // const voiceSelect = document.querySelector('#voice-select');
-    // const rate = document.querySelector('#rate');
-    // const rateValue = document.querySelector('#rate-value');
-    // const pitch = document.querySelector('#pitch');
-    // const pitchValue = document.querySelector('#pitch-value');
-    // const body = document.querySelector('body');
-
-    // //Browser identifier
-    // // Firefox 1.0+
-    // var isFirefox = typeof InstallTrigger !== 'undefined';
-
-    // // Chrome 1+
-    // var isChrome = !!window.chrome && !!window.chrome.webstore;
-
-    // // Init voices array
-    // let voices = [];
-
-    // const getVoices = () => {
-    //     voices = synth.getVoices();
-
-    //     // Loop through voices and create an option for each one
-    //     voices.forEach(voice => {
-    //         // Create option element
-    //         const option = document.createElement('option');
-    //         // Fill option with voice and language
-    //         option.textContent = voice.name + '(' + voice.lang + ')';
-
-    //         // Set needed option attributes
-    //         option.setAttribute('data-lang', voice.lang);
-    //         option.setAttribute('data-name', voice.name);
-    //         voiceSelect.appendChild(option);
-    //     });
-    // };
-
-
-
-    // //Line 35, 36 causes voice list duplication
-    // if (synth.onvoiceschanged !== undefined) {
-    //     synth.onvoiceschanged = getVoices;
-    // }
-
-    // // //Fix for duplication, run code depending on the browser
-    // // if (isFirefox) {
-    // //     getVoices();
-    // // }
-    // // if (isChrome) {
-    // //     if (synth.onvoiceschanged !== undefined) {
-    // //         synth.onvoiceschanged = getVoices;
-    // //     }
-    // // }
 
     // Speak
     const speak = () => {
@@ -82,10 +24,6 @@ export default function AppTranslatorVoice() {
             return;
         }
         if (text.value !== '') {
-            // Add background animation
-            // body.style.background = '#141414 url(img/wave.gif)';
-            // body.style.backgroundRepeat = 'repeat-x';
-            // body.style.backgroundSize = '100% 100%';
 
             // Get speak text
             const speakText = new SpeechSynthesisUtterance(text.text);
@@ -93,37 +31,12 @@ export default function AppTranslatorVoice() {
             // Speak end
             speakText.onend = e => {
                 console.log('Done speaking...');
-                // body.style.background = '#141414';
             };
 
             // Speak error
             speakText.onerror = e => {
                 console.error('Something went wrong');
             };
-
-            // // Selected voice
-            // const selectedVoice = voices[0].getAttribute('name');
-            // WORKS!!!
-            // const selectedVoice = voices[9].name;
-            const selectedVoice = voices[9].name;
-            console.log("selectedVoice - "+ selectedVoice)
-            console.log("selectedVoice2 - "+ lang)
-            console.log("selectedVoice3 Slice - "+ lang.slice(0, -8))
-
-            function selectedVoiceFunction() {
-                let value
-                for(let i=0; i<voices.length; i++){
-                    if(voices[i].name === selectedVoice){
-                        value = voices[i].name
-                    }
-                }
-                // speakText.voice === value;
-                console.log("VALUE "+value)
-            }
-
-            selectedVoiceFunction();
-
-            // const selectedVoice = voices[9].name
 
             // // Loop through voices
             voices.forEach(voice => {
@@ -135,35 +48,9 @@ export default function AppTranslatorVoice() {
             // Set pitch and rate
             // speakText.rate = rate.value;
             // speakText.pitch = pitch.value;
-            // Speak
             synth.speak(speakText);
         }
     };
-
-    // EVENT LISTENERS
-
-    // // Text form submit
-    // textForm.addEventListener('submit', e => {
-    //   e.preventDefault();
-    //   speak();
-    //   textInput.blur();
-    // });
-
-    // // Rate value change
-    // rate.addEventListener('change', e => (rateValue.textContent = rate.value));
-
-    // // Pitch value change
-    // pitch.addEventListener('change', e => (pitchValue.textContent = pitch.value));
-
-    // // Voice select change
-    // voiceSelect.addEventListener('change', e => speak());
-
-
-
-    ///////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////
-
 
     useEffect(() => {
         const synth = window.speechSynthesis;
@@ -185,13 +72,13 @@ export default function AppTranslatorVoice() {
     function handleSubmit(e) {
         e.preventDefault();
         // console.log(text.text)
-        console.log(voices)
+        // console.log(voices)
         // console.log(voices[0].default) // default tells if languge is selected
         // console.log(voices[0].name) // default tells if languge is selected
-        speak();
-        // textInput.blur();
 
-        // WORKS!!!
+        speak();
+
+        // OR
         // let utteranceInit = new SpeechSynthesisUtterance(text.text)
         // utteranceInit.lang = "fr-FR";
         // speechSynthesis.speak(utteranceInit)
@@ -217,15 +104,16 @@ export default function AppTranslatorVoice() {
         const selectedOption = event.target.value
         setLang(selectedOption)
     }
-    console.log("handleSelect -8 SLICE - "+lang.slice(0, -8))
+    // console.log("handleSelect -8 SLICE - "+lang.slice(0, -8))
 
     return (
         <form className='speak-wrapper'
             onSubmit={handleSubmit}
         >
+            {/* Start typing your text here and then choose a language to read the text for you */}
             <textarea
                 className='textarea'
-                placeholder='text here'
+                placeholder='text-to-voice here'
                 name="text"
                 value={text.text}
                 onChange={handleChange}
@@ -252,6 +140,8 @@ export default function AppTranslatorVoice() {
             </div>
 
             <button>speak</button>
+
+            <img scr={wave} className='wave'></img>
         </form>
     )
 }
