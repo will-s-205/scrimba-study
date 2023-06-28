@@ -4,8 +4,31 @@
     margin: 0 auto;
     width: 300px;
     height: 150px;
-}
+    padding: 10px;
+    box-shadow: 0 0 3px #000;
+    border-radius: 10px;
+    background: radial-gradient(circle, hsla(0, 0%, 84%, 0.291) 47%, hsla(0, 0%, 89%, 0.497) 91%);
 
-.textarea {
-    height: 100px;
+    .textarea {
+        height: 100px;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 0 3px #000;
+        opacity: 0.8;
+    }
+
+    button {
+        margin-top: 5px;
+    }
+
+    select {
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: 0 0 3px #000;
+    }
 }
+ @media (max-width: 300px){
+    .speak-wrapper {
+        width: 90%;
+    }
+ }
