@@ -3,6 +3,7 @@ import './AppTranslator.scss';
 // import AppTranslatorButtonRow from './AppTranslatorButtonRow';
 // import AppTranslatorCreateNewButton from './AppTranslatorCreateNewButton';
 import AppTranslatorCreateNewButton0 from './AppTranslatorCreateNewButton0';
+// import AppTranslatorVoice from './AppTranslatorVoice';
 
 export default function AppTranslator() {
 
@@ -12,6 +13,7 @@ export default function AppTranslator() {
             {/* <AppTranslatorButtonRow />
             <AppTranslatorCreateNewButton /> */}
             <AppTranslatorCreateNewButton0 />
+            {/* <AppTranslatorVoice /> */}
         </div>
     )
 }

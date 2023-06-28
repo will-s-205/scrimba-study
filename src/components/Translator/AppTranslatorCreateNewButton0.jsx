@@ -5,7 +5,7 @@ import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton() {
-    const[staleVoice] = useState([readTitle])
+    const [staleVoice] = useState([readTitle])
     const [elements, setElements] = useState([
         // { id: "", name: "", boolean: true },
         // {id:2},
@@ -22,9 +22,6 @@ export default function AppTranslatorCreateNewButton() {
         utteranceInit.lang = "fr-FR";
         speechSynthesis.speak(utteranceInit)
     }
-    
-
-
 
     useEffect(() => {
         // console.log(elements)
@@ -33,13 +30,6 @@ export default function AppTranslatorCreateNewButton() {
         // elements
         staleVoice
     ])
-
-    // const deleteById = id => {
-    //     setElements(oldValues => {
-    //         return oldValues.filter(data => data.id !== id)
-    //     })
-    //     console.log(id)
-    // }
 
     // const deleteByIndex = index => {
     //     setElements(oldValues => {
@@ -54,7 +44,7 @@ export default function AppTranslatorCreateNewButton() {
         console.log(name)
     }
 
-    // // delete one item
+    // // delete one item by id
     // const deleteById2 = id => {
     //     setElements(oldValues => {
     //         return oldValues.filter(data => data.id !== id)
@@ -151,12 +141,6 @@ export default function AppTranslatorCreateNewButton() {
                 window.location.reload();
                 let confirm = []
 
-
-
-                // speechSynthesis.speak(new SpeechSynthesisUtterance("Glad to meet you, my friend"))
-
-
-
                 if (elements.length > 1 && values1.name === "How") {
                     // console.log(values1.name)
                     // console.log("How!")
@@ -189,7 +173,7 @@ export default function AppTranslatorCreateNewButton() {
                 utterance.pitch = 1;
                 utterance.rate = 1.1;
                 utterance.volume = 3;
-                // utterance.lang = "fr-FR";
+                utterance.lang = "en-EN";
                 speechSynthesis.speak(utterance)
 
                 if (elements.length < 2 || elements.length > 8) {
@@ -198,10 +182,6 @@ export default function AppTranslatorCreateNewButton() {
                     confirm.push("Wrong amount of words")
                 }
                 console.log(confirm)
-                // console.log(elements.length)
-
-
-
 
                 if (confirm.length === 4) {
                     alert("Answer is correct!")
@@ -247,3 +227,5 @@ export default function AppTranslatorCreateNewButton() {
 
 // if element is exist by id or name
     // do not create more
+
+    // Code refactoring - move voice features to the specific component
