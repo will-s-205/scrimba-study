@@ -5,6 +5,7 @@ import './AppTranslator.scss';
 import { useEffect, useState } from 'react';
 
 export default function AppTranslatorCreateNewButton() {
+    const[staleVoice, setStaleVoice] = useState([readTitle])
     const [elements, setElements] = useState([
         // { id: "", name: "", boolean: true },
         // {id:2},
@@ -16,10 +17,21 @@ export default function AppTranslatorCreateNewButton() {
         // { id: 4, name: "🍇 Grapes" },
     ]);
 
+    function readTitle() {
+        let utteranceInit = new SpeechSynthesisUtterance("Comment s'est passée ta journée?")
+        utteranceInit.lang = "fr-FR";
+        speechSynthesis.speak(utteranceInit)
+    }
+    
+
+
+
     useEffect(() => {
         // console.log(elements)
+        readTitle()
     }, [
         // elements
+        staleVoice
     ])
 
     // const deleteById = id => {
@@ -112,13 +124,13 @@ export default function AppTranslatorCreateNewButton() {
             day
         </button>
 
-    function forEachKey() {
-        for (let i = 0; i < elements.length; i++) {
-            if (i % 2 === 1) {
-                console.log(elements[i].name);
-            }
-        }
-    }
+    // function forEachKey() {
+    //     for (let i = 0; i < elements.length; i++) {
+    //         if (i % 2 === 1) {
+    //             console.log(elements[i].name);
+    //         }
+    //     }
+    // }
 
     // const names = Object.keys(elements)
     // const entries = Object.entries(elements)
@@ -136,7 +148,7 @@ export default function AppTranslatorCreateNewButton() {
 
             className='check-button'
             onClick={(e) => {
-                // window.location.reload();
+                window.location.reload();
                 let confirm = []
 
 
@@ -167,17 +179,17 @@ export default function AppTranslatorCreateNewButton() {
                 forEachKey()
                 function forEachKey() {
                     for (let i = 0; i < elements.length; i++) {
-                        if (i % 2 == 1) {
+                        if (i % 2 === 1) {
                             voiceConfirm.push(elements[i].name);
                         }
                     }
                 }
 
-
                 const utterance = new SpeechSynthesisUtterance(voiceConfirm)
                 utterance.pitch = 1;
                 utterance.rate = 1.1;
                 utterance.volume = 3;
+                // utterance.lang = "fr-FR";
                 speechSynthesis.speak(utterance)
 
                 if (elements.length < 2 || elements.length > 8) {
@@ -202,13 +214,6 @@ export default function AppTranslatorCreateNewButton() {
         >
             Check
         </button>
-
-    // function toggleShown() {
-    //     setElements(prevShown => !prevShown)
-    // }
-
-    // const synth =
-    // window.speechSynthesis
 
     return (
         <div className='container1'>
@@ -242,5 +247,3 @@ export default function AppTranslatorCreateNewButton() {
 
 // if element is exist by id or name
     // do not create more
-
-// How to enable voice reading?
