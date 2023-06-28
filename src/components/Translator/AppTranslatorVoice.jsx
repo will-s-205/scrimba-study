@@ -6,7 +6,10 @@ import './AppTranslatorVoice.scss';
 export default function AppTranslatorVoice() {
     const [text, setText] = useState('')
     const [voices, setVoices] = useState([]);
-    const [lang, setLang] = useState('');
+    const [lang, setLang] = useState(
+        ''
+        // "Microsoft David - English (United States)"
+        );
 
     console.log(text)
     useEffect(() => {
@@ -103,27 +106,28 @@ export default function AppTranslatorVoice() {
             // WORKS!!!
             // const selectedVoice = voices[9].name;
             const selectedVoice = voices[9].name;
+            console.log("selectedVoice - "+ selectedVoice)
+            console.log("selectedVoice2 - "+ lang)
+            console.log("selectedVoice3 Slice - "+ lang.slice(0, -8))
 
-            // function selectedVoiceFunction() {
-            //     let value
-            //     for(let i=0; i<voices.length; i++){
-            //         if(voices[i].default === true){
-            //             value = voices[i].name
-            //         }
-            //     }
-            //     // speakText.voice === value;
-            //     console.log(value)
-            // }
+            function selectedVoiceFunction() {
+                let value
+                for(let i=0; i<voices.length; i++){
+                    if(voices[i].name === selectedVoice){
+                        value = voices[i].name
+                    }
+                }
+                // speakText.voice === value;
+                console.log("VALUE "+value)
+            }
 
-            // selectedVoiceFunction();
-
-            console.log(lang)
+            selectedVoiceFunction();
 
             // const selectedVoice = voices[9].name
 
             // // Loop through voices
             voices.forEach(voice => {
-                if (voice.name === selectedVoice) {
+                if (voice.name === lang.slice(0, -8)) {
                     speakText.voice = voice;
                 }
             });
@@ -177,7 +181,7 @@ export default function AppTranslatorVoice() {
         };
     }, []);
 
-
+    // Running functions on submit
     function handleSubmit(e) {
         e.preventDefault();
         // console.log(text.text)
@@ -193,6 +197,7 @@ export default function AppTranslatorVoice() {
         // speechSynthesis.speak(utteranceInit)
     }
 
+    // Getting text of textarea
     function handleChange(event) {
         const { name, value } = event.target
         setText(prevRec => {
@@ -206,12 +211,13 @@ export default function AppTranslatorVoice() {
         })
     }
 
+    // Getting element by clicking on it
     const handleSelect = (event) => {
         // console.log(event.target.value)
         const selectedOption = event.target.value
         setLang(selectedOption)
-        console.log("LANG ++++++++ "+lang)
     }
+    console.log("handleSelect -8 SLICE - "+lang.slice(0, -8))
 
     return (
         <form className='speak-wrapper'
@@ -228,8 +234,9 @@ export default function AppTranslatorVoice() {
             <div className="form-group">
                 <select
                     // id="voice-select"
-                    defaultValue={lang}
+                    value={lang}
                     onChange={handleSelect}
+                    name="lang"
                 >
                     {voices.map((voice, index) => (
                         <option
