@@ -17,7 +17,7 @@ export default function AppTranslatorCreateNewButton() {
     ]);
 
     useEffect(() => {
-        console.log(elements)
+        // console.log(elements)
     }, [elements])
 
     const deleteById = id => {
@@ -123,17 +123,61 @@ export default function AppTranslatorCreateNewButton() {
     }
 
     const names = Object.keys(elements)
+    const entries = Object.entries(elements)
     const values = Object.values(elements)
     const values1 = Object.values(elements)[1]
-    const entries = Object.entries(elements)
+    const values3 = Object.values(elements)[3]
+    const values5 = Object.values(elements)[5]
+    const values7 = Object.values(elements)[7]
+    const values9 = Object.values(elements)[9]
     // const entries1 = Object.entries(elements)[1][1]
     // const name1 = entries[1][1]
     // const valueNames = values[1]
 
+    // let confirmation = console.log("CLICK")
+    // if(values1!=="How"){
+    //     console.log("correct!")
+    // }
+
     const button5 =
         <button
             // onClick={() => console.log(forEachKey())}
-            onClick={() => console.log(values1.name)}
+            // onClick={() => console.log(values1.name)}
+
+            onClick={(e) => {
+                window.location.reload();
+                // console.log(values1.name)
+                // console.log(values3.name)
+                // console.log(values5.name)
+                // console.log(values7.name)
+                // console.log(values9.name)
+
+                let confirm = []
+                if (elements.length>1 && values1.name === "How") {
+                    // console.log("How!")
+                    confirm.push("How!")
+                } if (elements.length>3 && values3.name === "was" && values1.name !== null) {
+                    // console.log("was!")
+                    confirm.push("was!")
+                } if (elements.length>5 && values5.name === "your" && values1.name !== null) {
+                    // console.log("your!")
+                    confirm.push("your!")
+                } if (elements.length>7 && values7.name === "day" && values1.name !== null) {
+                    // console.log("day!")
+                    confirm.push("day!")
+                } 
+                if (elements.length<2 || elements.length>8){
+                    confirm.push("Wrong number of words")
+                }
+                console.log(confirm)
+                console.log(elements.length)
+                if(confirm.length==4){
+                    alert("Answer is correct!")
+                } else {
+                    alert("Wrong answer!")
+                }
+            }
+            }
         >
             console log
         </button>
@@ -141,6 +185,8 @@ export default function AppTranslatorCreateNewButton() {
     function toggleShown() {
         setElements(prevShown => !prevShown)
     }
+
+
 
     return (
         <div className='container1'>
