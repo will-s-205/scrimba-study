@@ -18,7 +18,9 @@ export default function AppTranslatorCreateNewButton() {
 
     useEffect(() => {
         // console.log(elements)
-    }, [elements])
+    }, [
+        // elements
+    ])
 
     // const deleteById = id => {
     //     setElements(oldValues => {
@@ -110,14 +112,13 @@ export default function AppTranslatorCreateNewButton() {
             day
         </button>
 
-    // function forEachKey() {
-    //     for (let i = 0; i < elements.length; i++) {
-    //         if (i % 6 == 0) {
-    //             console.log(elements[i].name);
-    //         }
-
-    //     }
-    // }
+    function forEachKey() {
+        for (let i = 0; i < elements.length; i++) {
+            if (i % 2 === 1) {
+                console.log(elements[i].name);
+            }
+        }
+    }
 
     // const names = Object.keys(elements)
     // const entries = Object.entries(elements)
@@ -133,48 +134,81 @@ export default function AppTranslatorCreateNewButton() {
             // onClick={() => console.log(forEachKey())}
             // onClick={() => console.log(values1.name)}
 
+            className='check-button'
             onClick={(e) => {
-                window.location.reload();
-
+                // window.location.reload();
                 let confirm = []
+
+
+
+                // speechSynthesis.speak(new SpeechSynthesisUtterance("Glad to meet you, my friend"))
+
+
+
                 if (elements.length > 1 && values1.name === "How") {
                     // console.log(values1.name)
                     // console.log("How!")
-                    confirm.push("How!")
+                    confirm.push("How")
                 } if (elements.length > 3 && values3.name === "was" && values1.name !== null) {
                     // console.log(values3.name)
                     // console.log("was!")
-                    confirm.push("was!")
+                    confirm.push("was")
                 } if (elements.length > 5 && values5.name === "your" && values1.name !== null) {
                     // console.log(values5.name)
                     // console.log("your!")
-                    confirm.push("your!")
+                    confirm.push("your")
                 } if (elements.length > 7 && values7.name === "day" && values1.name !== null) {
                     // console.log(values7.name)
                     // console.log("day!")
-                    confirm.push("day!")
+                    confirm.push("day")
                 }
+
+                let voiceConfirm = []
+                forEachKey()
+                function forEachKey() {
+                    for (let i = 0; i < elements.length; i++) {
+                        if (i % 2 == 1) {
+                            voiceConfirm.push(elements[i].name);
+                        }
+                    }
+                }
+
+
+                const utterance = new SpeechSynthesisUtterance(voiceConfirm)
+                utterance.pitch = 1;
+                utterance.rate = 1.1;
+                utterance.volume = 3;
+                speechSynthesis.speak(utterance)
+
                 if (elements.length < 2 || elements.length > 8) {
                     // console.log(values9.name)
                     // console.log("Wrong number of words!")
-                    confirm.push("Wrong number of words")
+                    confirm.push("Wrong amount of words")
                 }
                 console.log(confirm)
-                console.log(elements.length)
+                // console.log(elements.length)
+
+
+
+
                 if (confirm.length === 4) {
                     alert("Answer is correct!")
                 } else {
                     alert("Wrong answer!")
                 }
+                console.log()
             }
             }
         >
-            console log
+            Check
         </button>
 
     // function toggleShown() {
     //     setElements(prevShown => !prevShown)
     // }
+
+    // const synth =
+    // window.speechSynthesis
 
     return (
         <div className='container1'>
