@@ -141,7 +141,11 @@ export default function AppTranslatorVoice() {
 
             <button>speak</button>
 
-            <img scr={wave} className='wave' alt='wave'></img>
+            <img 
+            scr={wave} 
+            className='wave' 
+            alt=''
+            ></img>
         </form>
     )
 }
